@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeStyle = styled.div`
-  margin: 2rem 0;
+  margin-top: 2rem;
 `;
 
 export const HomeContainer = styled.div`
