@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const AppBarStyle = styled.header`
@@ -12,53 +13,53 @@ export const AppBarTitle = styled.h1`
   align-items: center;
   color: var(--onyx);
   z-index: 10;
-  mix-blend-mode: exclusion;
 `;
 
 type AppBarMenuProps = {
   menu: boolean;
 };
 export const AppBarMenu = styled.div<AppBarMenuProps>`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
-  border-radius: 0 0 0 13rem;
-  background-color: var(--onyx);
-  z-index: 9;
-  transition-property: width, height;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+  z-index: 100;
+  background-color: var(--mint-cream);
+  width: 20rem;
+  height: 100%;
+  padding: 1rem;
+  box-shadow: ${({ menu }) => (menu ? '-0.1rem 0 1rem var(--onyx)' : 'none')};
+  transform: translateX(${({ menu }) => (menu ? '0' : '20rem')});
+  transition: all 0.3s ease;
+`;
 
-  & svg {
-    display: ${({ menu }) => (menu ? 'unset' : 'none')};
-    font-size: 1.4rem;
-    color: var(--mint-cream);
-    position: absolute;
+export const AppBarLink = styled(Link)`
+  color: var(--onyx);
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 0.6rem;
+  border-radius: 0.2rem;
+  transition: background-color 0.2s ease-in;
+
+  &:hover {
     cursor: pointer;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(110%);
-    }
+    background-color: #2c2c2c1d;
   }
 
-  & :nth-child(1) {
-    left: 1.5rem;
-    top: 1.6rem;
+  & span {
+    margin-left: 0.2rem;
   }
+`;
 
-  & :nth-child(2) {
-    left: 3rem;
-    top: 5.1rem;
-  }
-
-  & :nth-child(3) {
-    left: 5.8rem;
-    top: 8rem;
-  }
-
-  & :nth-child(4) {
-    left: 9.9rem;
-    top: 9.9rem;
-  }
+export const AppBarMenuBack = styled.div<AppBarMenuProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: ${({ menu }) => (menu ? '0.8' : '0')};
+  z-index: ${({ menu }) => (menu ? '99' : '-1')};
+  background-color: var(--onyx);
+  transition: all 0.3s ease;
 `;
