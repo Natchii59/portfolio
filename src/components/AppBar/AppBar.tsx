@@ -5,10 +5,16 @@ import {
   IoClose,
   IoHome,
   IoMail,
-  IoFolderOpen,
-  IoDocuments,
+  IoSchool,
+  IoTerminal,
 } from 'react-icons/io5';
-import { AppBarMenu, AppBarStyle, AppBarTitle } from './style';
+import {
+  AppBarLink,
+  AppBarMenu,
+  AppBarMenuBack,
+  AppBarStyle,
+  AppBarTitle,
+} from './style';
 
 export default function AppBar() {
   const [menu, setMenu] = useState<boolean>(false);
@@ -20,21 +26,11 @@ export default function AppBar() {
         <span style={{ marginLeft: '0.4rem' }}>Natchi</span>
       </AppBarTitle>
 
-      {menu ? (
-        <IoClose
-          style={{
-            fontSize: '2.1rem',
-            zIndex: '10',
-            color: 'var(--mint-cream)',
-            cursor: 'pointer',
-          }}
-          onClick={() => setMenu(false)}
-        />
-      ) : (
+      {!menu && (
         <IoMenu
           style={{
             fontSize: '2.1rem',
-            zIndex: '10',
+            zIndex: '8',
             color: 'var(--onyx)',
             cursor: 'pointer',
           }}
@@ -42,17 +38,56 @@ export default function AppBar() {
         />
       )}
 
-      <AppBarMenu
-        menu={menu}
-        style={{
-          width: menu ? '13rem' : '0',
-          height: menu ? '13rem' : '0',
-        }}
-      >
-        <IoHome />
-        <IoFolderOpen />
-        <IoDocuments />
-        <IoMail />
+      <AppBarMenuBack menu={menu} onClick={() => setMenu(false)} />
+
+      <AppBarMenu menu={menu}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <h2>Menu</h2>
+
+          <IoClose
+            style={{
+              fontSize: '2.1rem',
+              color: 'var(--onyx)',
+              cursor: 'pointer',
+            }}
+            onClick={() => setMenu(false)}
+          />
+        </div>
+
+        <hr
+          style={{
+            background: 'var(--onyx)',
+            margin: '0.5rem 0',
+            border: 'none',
+            height: '1px',
+            width: '100%',
+          }}
+        />
+
+        <div>
+          <AppBarLink to={{ pathname: '' }}>
+            <IoHome />
+            <span>Accueil</span>
+          </AppBarLink>
+          <AppBarLink to={{ pathname: '' }}>
+            <IoSchool />
+            <span>Parcours Professionel</span>
+          </AppBarLink>
+          <AppBarLink to={{ pathname: '' }}>
+            <IoTerminal />
+            <span>Programmation</span>
+          </AppBarLink>
+          <AppBarLink to={{ pathname: '' }}>
+            <IoMail />
+            <span>Contact</span>
+          </AppBarLink>
+        </div>
       </AppBarMenu>
     </AppBarStyle>
   );
