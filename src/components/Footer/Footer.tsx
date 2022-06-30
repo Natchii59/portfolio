@@ -6,7 +6,7 @@ import {
   FooterLink,
   FooterStyle,
 } from './style';
-import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
+import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 
 export default function Footer() {
   return (
@@ -26,6 +26,11 @@ export default function Footer() {
           >
             <IoLogoLinkedin />
             <span>LinkedIn</span>
+          </FooterLink>
+
+          <FooterLink href='https://twitter.com/Natchi59/' target='blank'>
+            <IoLogoTwitter />
+            <span>Twitter</span>
           </FooterLink>
         </FooterBox>
 

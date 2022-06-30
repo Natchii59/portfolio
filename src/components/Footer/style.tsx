@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FooterStyle = styled.div`
   margin: 0 2rem 2rem 2rem;
   padding: 1rem;
-  background-color: var(--orange-red-crayola);
+  background-color: #80808075;
   border-radius: 0 0 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,11 @@ export const FooterLink = styled.a`
   color: var(--onyx);
   text-decoration: none;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+
+  & span {
+    margin-left: 0.2rem;
+  }
 `;
 
 export const FooterCredits = styled.div`
