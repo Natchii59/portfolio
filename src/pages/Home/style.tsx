@@ -113,6 +113,10 @@ export const HomeTLStatus = styled.div<HomeTLStatusProps>`
   min-width: 13rem;
   text-align: center;
 
+  & h4 {
+    font-weight: 500;
+  }
+
   @media screen and (max-width: 600px) {
     padding: 1.3rem 1rem 0 1rem;
   }

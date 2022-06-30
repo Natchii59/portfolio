@@ -14,7 +14,7 @@ export const FooterStyle = styled.div`
 `;
 
 export const FooterLink = styled.a`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--onyx);
   text-decoration: none;
   display: flex;
