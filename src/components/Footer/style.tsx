@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 export const FooterStyle = styled.div`
-  margin: 0 2rem 2rem 2rem;
+  padding: 0 2rem 2rem 2rem;
+  box-shadow: inset 0 0.2rem 0.3rem var(--onyx);
+
+  @media screen and (max-width: 750px) {
+    padding: 0 1rem 1rem 1rem;
+  }
+`;
+
+export const FooterContainer = styled.div`
+  z-index: 5;
   padding: 1rem;
   background-color: #80808075;
   border-radius: 0 0 1rem 1rem;
   display: flex;
   flex-direction: column;
-
-  @media screen and (max-width: 750px) {
-    margin: 0 1rem 1rem 1rem;
-  }
 `;
 
 export const FooterLink = styled.a`
@@ -34,7 +39,7 @@ export const FooterCredits = styled.div`
   justify-content: space-between;
 `;
 
-export const FooterContainer = styled.div`
+export const FooterContent = styled.div`
   display: flex;
 
   @media screen and (max-width: 550px) {
