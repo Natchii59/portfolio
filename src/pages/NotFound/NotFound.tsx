@@ -34,6 +34,19 @@ export default function NotFound() {
       <NotFoundButton to={{ pathname: '/' }}>
         Revenir en lieu sûr
       </NotFoundButton>
+      <span
+        style={{
+          marginTop: '0.8rem',
+          fontSize: '0.8rem',
+          textDecoration: 'underline',
+          cursor: 'pointer',
+        }}
+        onClick={() =>
+          window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')
+        }
+      >
+        Lieu encore plus sûr
+      </span>
     </NotFoundStyle>
   );
 }
