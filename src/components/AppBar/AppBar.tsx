@@ -71,11 +71,14 @@ export default function AppBar() {
         />
 
         <div>
-          <AppBarLink to={{ pathname: '' }} onClick={() => setMenu(false)}>
+          <AppBarLink to={{ pathname: '/' }} onClick={() => setMenu(false)}>
             <IoHome />
             <span>Accueil</span>
           </AppBarLink>
-          <AppBarLink to={{ pathname: '' }} onClick={() => setMenu(false)}>
+          <AppBarLink
+            to={{ pathname: '/professional' }}
+            onClick={() => setMenu(false)}
+          >
             <IoSchool />
             <span>Parcours Professionel</span>
           </AppBarLink>
