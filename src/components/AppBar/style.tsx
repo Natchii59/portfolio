@@ -13,6 +13,7 @@ export const AppBarTitle = styled.h1`
   align-items: center;
   color: var(--onyx);
   z-index: 10;
+  user-select: none;
 `;
 
 type AppBarMenuProps = {
