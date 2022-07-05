@@ -1,27 +1,27 @@
 export const datas = [
   {
-    title: 'Stage Découverte SNCF Ferroviraire',
+    title: 'Stage Découverte SNCF Ferroviaire',
     description:
-      "J'ai effectué un stage dans le domaine ferroviaire (SNCF). J'ai eu l'occasion de découvrir plusieurs services dont, rénovation des trains, surveillance des voies, entretiens des voies et trains.",
+      "Stage dans le domaine ferroviaire (SNCF). J'ai eu l'occasion de découvrir plusieurs services dont, rénovation des trains, surveillance des voies, entretien des voies et trains.",
     date: '2018',
     complete: true,
   },
   {
     title: 'Brevet des Collèges',
-    description: "J'ai obtenu mon brevet mention bien.",
+    description: 'Brevet mention bien.',
     date: '2018',
     complete: true,
   },
   {
-    title: 'Lycée Marguerite Flandres',
+    title: 'Lycée Marguerite de Flandres',
     description:
-      "J'ai fait un lycée général à l'établissement Marguerite De Flandres à Gondecourt. J'ai choisi les 3 spécialités NSI (Informatique), Mathémathiques et Physique Chimie pour mon année de Première. J'ai abandonné la spécialité Physique Chimie pour mon année de Terminale.",
+      "Lycée général à l'établissement Marguerite de Flandres à Gondecourt. J'ai choisi les 3 spécialités NSI (Informatique), Mathémathiques et Physique Chimie pour mon année de Première. J'ai concervé mes 2 spécialités NSI et Mathématiques pour mon année de Terminale.",
     date: '2018 - 2021',
     complete: true,
   },
   {
     title: 'Baccalauréat',
-    description: "J'ai obtenu mon baccalauréat mention assez bien.",
+    description: 'Baccalauréat mention assez bien.',
     date: '2021',
     complete: true,
   },
