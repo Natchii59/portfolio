@@ -12,6 +12,7 @@ export const GoToTop = styled(IoArrowUp)`
   right: 2rem;
   height: 2.5rem;
   width: 2.5rem;
+  padding: 0.2rem;
   background-color: var(--mint-cream);
   color: var(--onyx);
   border-radius: 0.3rem;
