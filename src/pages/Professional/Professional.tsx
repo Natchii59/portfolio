@@ -6,13 +6,37 @@ import {
   TimeLineZoneSticky,
   TimeLineZone,
   TimeLineContainer,
+  GoToTop,
 } from './style';
 import { CgScrollV } from 'react-icons/cg';
 import { datas } from './datas';
+import { useEffect, useState } from 'react';
 
 export default function Professional() {
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <ProfessionalStyle>
+      <GoToTop
+        style={{
+          opacity: scrollPosition > 300 ? '1' : '0',
+          zIndex: scrollPosition > 300 ? '100' : '-1',
+        }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      />
+
       <StartZone>
         <StartZoneSticky>
           <StartTitle>

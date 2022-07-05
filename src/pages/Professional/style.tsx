@@ -1,8 +1,22 @@
+import { IoArrowUp } from 'react-icons/io5';
 import styled from 'styled-components';
 
 export const ProfessionalStyle = styled.div`
   background-color: var(--onyx);
   color: var(--mint-cream);
+`;
+
+export const GoToTop = styled(IoArrowUp)`
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: var(--mint-cream);
+  color: var(--onyx);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 `;
 
 export const StartZone = styled.div`
