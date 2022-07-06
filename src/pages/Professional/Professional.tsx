@@ -40,7 +40,7 @@ export default function Professional() {
       <StartZone>
         <StartZoneSticky>
           <StartTitle>
-            Faites défiler la page pour découvrir mon parcours professionel
+            Faites défiler la page pour découvrir mon parcours professionnel
           </StartTitle>
           <CgScrollV
             style={{

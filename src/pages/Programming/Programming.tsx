@@ -28,9 +28,9 @@ export default function Programming() {
 
         <ProgrammingBox>
           <p>
-            J'ai réellement commencé le développement informatique depuis mars
-            2020. Avec comme premier language le JavaScript en codant des
-            applications grâce au module{' '}
+            Je pratique le développement informatique depuis mars 2020. Avec
+            JavaScript, mon premier langage, j'ai codé des applications grâce au
+            module{' '}
             <a
               href='https://github.com/discordjs/discord.js/'
               style={{ color: 'var(--onyx)' }}
@@ -41,7 +41,7 @@ export default function Programming() {
             <br />
             Puis avec le temps je me suis finalement intéressé à la création de
             site web, côté backend et frontend, grâce à des frameworks et des
-            librairies, avec l'apprentissage en même temps de Typescript.
+            librairies, en apprenant en même temps le Typescript.
             <br />
             Aujourd'hui je fais pratiquement tous mes projets en Typescript.
             Mais je m'exerce quand même dans d'autres langages pour en découvrir

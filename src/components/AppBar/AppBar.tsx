@@ -80,7 +80,7 @@ export default function AppBar() {
             onClick={() => setMenu(false)}
           >
             <IoSchool />
-            <span>Parcours Professionel</span>
+            <span>Parcours Professionnel</span>
           </AppBarLink>
           <AppBarLink
             to={{ pathname: '/programming' }}
