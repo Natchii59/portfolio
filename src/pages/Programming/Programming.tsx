@@ -87,7 +87,9 @@ export default function Programming() {
                 }}
               >
                 <RiGitRepositoryLine style={{ fontSize: '1.3rem' }} />
-                <a href={d.url}>{d.title}</a>
+                <a href={d.url} target='_blank' rel='noreferrer'>
+                  {d.title}
+                </a>
               </div>
 
               <p>{d.description}</p>
