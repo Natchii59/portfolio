@@ -51,6 +51,15 @@ export default function Footer() {
             <span>Website design by me</span>
             <br />
             <span>Coded by me</span>
+            <br />
+            <a
+              href='https://github.com/Natchii59/website'
+              target='_blank'
+              rel='noreferrer'
+              style={{ color: 'var(--onyx)' }}
+            >
+              Git Repository
+            </a>
           </div>
         </FooterCredits>
       </FooterContainer>
