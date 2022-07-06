@@ -4,7 +4,6 @@ import {
   IoMenu,
   IoClose,
   IoHome,
-  IoMail,
   IoSchool,
   IoTerminal,
 } from 'react-icons/io5';
@@ -88,10 +87,6 @@ export default function AppBar() {
           >
             <IoTerminal />
             <span>Programmation</span>
-          </AppBarLink>
-          <AppBarLink to={{ pathname: '' }} onClick={() => setMenu(false)}>
-            <IoMail />
-            <span>Contact</span>
           </AppBarLink>
         </div>
       </AppBarMenu>
