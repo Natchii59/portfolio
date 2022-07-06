@@ -8,6 +8,7 @@ import {
   FooterStyle,
 } from './style';
 import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
+import CV from '../../assets/CV-Nathan-Caron.png';
 
 export default function Footer() {
   return (
@@ -41,6 +42,14 @@ export default function Footer() {
 
             <a href='mailto:contact@natchi.fr' style={{ color: 'var(--onyx)' }}>
               contact@natchi.fr
+            </a>
+          </FooterBox>
+
+          <FooterBox>
+            <FooterBoxTitle>Ressources</FooterBoxTitle>
+
+            <a href={CV} download style={{ color: 'var(--onyx)' }}>
+              Télécharger mon CV
             </a>
           </FooterBox>
         </FooterContent>
