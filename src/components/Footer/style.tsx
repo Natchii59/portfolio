@@ -25,6 +25,10 @@ export const FooterLink = styled.a`
   display: flex;
   align-items: center;
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   & span {
     margin-left: 0.2rem;
   }
