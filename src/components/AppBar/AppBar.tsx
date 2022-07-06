@@ -6,6 +6,7 @@ import {
   IoHome,
   IoSchool,
   IoTerminal,
+  IoHeart,
 } from 'react-icons/io5';
 import {
   AppBarLink,
@@ -89,6 +90,18 @@ export default function AppBar() {
             <span>Programmation</span>
           </AppBarLink>
         </div>
+
+        <span
+          style={{
+            position: 'absolute',
+            bottom: '0.5rem',
+            right: '1rem',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          Coded with <IoHeart style={{ marginLeft: '0.2rem' }} />
+        </span>
       </AppBarMenu>
     </AppBarStyle>
   );
