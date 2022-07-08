@@ -129,22 +129,29 @@ enum LangName {
   TYPESCRIPT = 'Typescript',
   JAVASCRIPT = 'Javascript',
   GRAPHQL = 'GraphQL',
+  NESTJS = 'NestJS',
 }
 enum LangColor {
   TYPESCRIPT = '#007acc',
   JAVASCRIPT = '#f0db4f',
   GRAPHQL = '#e535ab',
+  NESTJS = '#ce3951',
 }
 
 export const datasRepositories = [
   {
-    title: 'TestProject',
-    url: 'https://github.com/Natchii59',
-    description: 'Ceci est un projet test',
+    title: 'Nest-App',
+    url: 'https://github.com/Natchii59/nest-app',
+    description:
+      "Application Backend avec système d'Authentification, Post, Like, Commantaires...",
     langs: [
       {
         name: LangName.TYPESCRIPT,
         color: LangColor.TYPESCRIPT,
+      },
+      {
+        name: LangName.NESTJS,
+        color: LangColor.NESTJS,
       },
       {
         name: LangName.GRAPHQL,
