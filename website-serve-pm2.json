@@ -1,9 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "website-serve",
-      "script": "serve",
-      "args": "-s build"
-    }
-  ]
-}
