@@ -1,0 +1,14 @@
+name: Deploy
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Deploy to production
+        run: |
+          cd /home/natchi/website/
+          git stash
+          git pull origin main
+          npm i
+          npm run build
