@@ -11,6 +11,6 @@ jobs:
         run: |
           cd /home/natchi/website/
           git stash
-          git pull origin main
+          git pull origin master
           npm i
           npm run build
