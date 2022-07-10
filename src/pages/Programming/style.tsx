@@ -77,6 +77,9 @@ export const RepositoryCard = styled.div`
   padding: 1rem;
   border-radius: 0.3rem;
   box-shadow: 0 0 0.1rem #80808075;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   & a {
     margin-left: 0.4rem;

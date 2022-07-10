@@ -130,20 +130,24 @@ enum LangName {
   JAVASCRIPT = 'Javascript',
   GRAPHQL = 'GraphQL',
   NESTJS = 'NestJS',
+  POSTGRESQl = 'PostgreSQL',
+  VUEJS = 'VueJS',
 }
 enum LangColor {
   TYPESCRIPT = '#007acc',
   JAVASCRIPT = '#f0db4f',
   GRAPHQL = '#e535ab',
   NESTJS = '#ce3951',
+  POSTGRESQL = '#0064a5',
+  VUEJS = '#42b883',
 }
 
 export const datasRepositories = [
   {
-    title: 'Nest-App',
+    title: 'Nest App',
     url: 'https://github.com/Natchii59/nest-app',
     description:
-      "Application Backend avec système d'Authentification, Post, Like, Commantaires...",
+      "Application Backend avec système d'Authentification, Post, Like, Commentaires...",
     langs: [
       {
         name: LangName.TYPESCRIPT,
@@ -157,50 +161,44 @@ export const datasRepositories = [
         name: LangName.GRAPHQL,
         color: LangColor.GRAPHQL,
       },
+      {
+        name: LangName.POSTGRESQl,
+        color: LangColor.POSTGRESQL,
+      },
     ],
   },
   {
-    title: 'TestProject',
-    url: 'https://github.com/Natchii59',
-    description: 'Ceci est un projet test',
+    title: 'Discord Bot Template',
+    url: 'https://github.com/Natchii59/discord-bot-template',
+    description:
+      'Bot Discord avec la librairie discord.js avec une base de données',
     langs: [
       {
         name: LangName.TYPESCRIPT,
         color: LangColor.TYPESCRIPT,
       },
       {
-        name: LangName.GRAPHQL,
-        color: LangColor.GRAPHQL,
+        name: LangName.POSTGRESQl,
+        color: LangColor.POSTGRESQL,
       },
     ],
   },
+];
+
+export const datasContributions = [
   {
-    title: 'TestProject',
-    url: 'https://github.com/Natchii59',
-    description: 'Ceci est un projet test',
+    title: 'PicwicToys',
+    url: 'https://picwictoys.com',
+    description:
+      'Refonte de la HomePage, fiche produit, intégration nouvelle api, etc...',
     langs: [
       {
         name: LangName.TYPESCRIPT,
         color: LangColor.TYPESCRIPT,
       },
       {
-        name: LangName.GRAPHQL,
-        color: LangColor.GRAPHQL,
-      },
-    ],
-  },
-  {
-    title: 'TestProject',
-    url: 'https://github.com/Natchii59',
-    description: 'Ceci est un projet test',
-    langs: [
-      {
-        name: LangName.TYPESCRIPT,
-        color: LangColor.TYPESCRIPT,
-      },
-      {
-        name: LangName.GRAPHQL,
-        color: LangColor.GRAPHQL,
+        name: LangName.VUEJS,
+        color: LangColor.VUEJS,
       },
     ],
   },

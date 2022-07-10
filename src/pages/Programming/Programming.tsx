@@ -14,7 +14,7 @@ import {
 } from './style';
 import { MdWavingHand } from 'react-icons/md';
 import { RiGitRepositoryLine } from 'react-icons/ri';
-import { datasCompetences, datasRepositories } from './datas';
+import { datasCompetences, datasContributions, datasRepositories } from './datas';
 
 export default function Programming() {
   return (
@@ -79,6 +79,38 @@ export default function Programming() {
 
         <RepositoriesContainer>
           {datasRepositories.map((d, i) => (
+            <RepositoryCard key={'repository-' + i}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <RiGitRepositoryLine style={{ fontSize: '1.3rem' }} />
+                <a href={d.url} target='_blank' rel='noreferrer'>
+                  {d.title}
+                </a>
+              </div>
+
+              <p>{d.description}</p>
+
+              <RepositoryLangsContainer>
+                {d.langs.map((l, i) => (
+                  <RepositoryLang key={'lang-' + i} color={l.color}>
+                    {l.name}
+                  </RepositoryLang>
+                ))}
+              </RepositoryLangsContainer>
+            </RepositoryCard>
+          ))}
+        </RepositoriesContainer>
+      </ProgrammingContainer>
+
+      <ProgrammingContainer>
+        <ProgrammingSubTitle>Mes contributions</ProgrammingSubTitle>
+
+        <RepositoriesContainer>
+          {datasContributions.map((d, i) => (
             <RepositoryCard key={'repository-' + i}>
               <div
                 style={{
