@@ -51,18 +51,23 @@ type ProgressBarProps = {
   value: number;
 };
 export const ProgressBar = styled.div<ProgressBarProps>`
-  width: 5rem;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(
-      closest-side,
-      var(--mint-cream) 85%,
-      transparent 0 99.9%,
-      var(--mint-cream) 0
-    ),
-    conic-gradient(#4a4a4a calc(${({ value }) => value} * 1%), #80808075 0);
+  height: 5.8rem;
+  width: 5.8rem;
+  margin-bottom: 0.4rem;
+  position: relative;
+
+  & svg circle {
+    fill: transparent;
+    stroke: #80808075;
+    stroke-width: 4;
+    transform: translate(2px, 2px);
+  }
+
+  & svg circle:nth-child(2) {
+    stroke: #4a4a4a;
+    stroke-dasharray: 283;
+    stroke-dashoffset: ${({ value }) => 283 - (283 * value) / 100};
+  }
 `;
 
 export const RepositoriesContainer = styled(ProgrammingBox)`

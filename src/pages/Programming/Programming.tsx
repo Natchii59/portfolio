@@ -14,7 +14,11 @@ import {
 } from './style';
 import { MdWavingHand } from 'react-icons/md';
 import { RiGitRepositoryLine } from 'react-icons/ri';
-import { datasCompetences, datasContributions, datasRepositories } from './datas';
+import {
+  datasCompetences,
+  datasContributions,
+  datasRepositories,
+} from './datas';
 
 export default function Programming() {
   return (
@@ -57,7 +61,33 @@ export default function Programming() {
         <CardsContainer>
           {datasCompetences.map((d, i) => (
             <SkillCard key={'programming-' + i}>
-              <ProgressBar value={d.value}>{d.icon}</ProgressBar>
+              <ProgressBar value={d.value}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '52%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  {d.icon}
+                </div>
+
+                <div
+                  style={{
+                    transform: 'rotate(-90deg)',
+                  }}
+                >
+                  <svg
+                    style={{
+                      transform: 'translate(30px, 30px)',
+                    }}
+                  >
+                    <circle cx='45' cy='45' r='45'></circle>
+                    <circle cx='45' cy='45' r='45'></circle>
+                  </svg>
+                </div>
+              </ProgressBar>
 
               <div
                 style={{
