@@ -35,4 +35,9 @@ export const timelineDatas = [
     content: 'Stage Informatique Frontend - PicWicToys',
     complete: true,
   },
+  {
+    date: '05/09/2022 - 28/07/2023',
+    content: 'Alternance Informatique - Buy2Click',
+    complete: false,
+  },
 ];

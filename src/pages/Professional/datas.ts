@@ -39,4 +39,10 @@ export const datas = [
     date: '9 mai 2022 - 24 juin 2022',
     complete: true,
   },
+  {
+    title: 'Alternance Buy2Click',
+    description: "Je n'ai pas encore commencé mon alternance",
+    date: '5 septembre 2022 - 28 juillet 2023',
+    complete: false,
+  },
 ];

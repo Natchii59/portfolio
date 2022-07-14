@@ -15,6 +15,7 @@ import {
   SiNestjs,
   SiPhp,
   SiPostgresql,
+  SiRuby,
   SiSwift,
   SiTypescript,
 } from 'react-icons/si';
@@ -121,6 +122,12 @@ export const datasCompetences = [
     icon: <SiSwift />,
     value: 10,
     title: 'SwiftUI',
+    status: Status.DEBUTANT,
+  },
+  {
+    icon: <SiRuby />,
+    value: 15,
+    title: 'Ruby',
     status: Status.DEBUTANT,
   },
 ];
