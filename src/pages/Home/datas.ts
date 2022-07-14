@@ -37,7 +37,7 @@ export const timelineDatas = [
   },
   {
     date: '05/09/2022 - 28/07/2023',
-    content: 'Alternance Informatique - Buy2Click',
+    content: 'Alternance Informatique - Click2Buy',
     complete: false,
   },
 ];

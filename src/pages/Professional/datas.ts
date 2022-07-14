@@ -40,7 +40,7 @@ export const datas = [
     complete: true,
   },
   {
-    title: 'Alternance Buy2Click',
+    title: 'Alternance Click2Buy',
     description: "Je n'ai pas encore commencé mon alternance",
     date: '5 septembre 2022 - 28 juillet 2023',
     complete: false,
