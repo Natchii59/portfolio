@@ -46,16 +46,17 @@ export const FooterCredits = styled.div`
 export const FooterContent = styled.div`
   display: flex;
 
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 `;
 
 export const FooterBox = styled.div`
   padding-right: 2rem;
 
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 600px) {
     padding-right: 0;
     padding-bottom: 2rem;
   }

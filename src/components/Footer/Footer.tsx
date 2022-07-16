@@ -7,8 +7,8 @@ import {
   FooterLink,
   FooterStyle,
 } from './style';
-import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 import CV from '../../assets/CV-Nathan-Caron.png';
+import { datas } from './datas';
 
 export default function Footer() {
   return (
@@ -18,29 +18,21 @@ export default function Footer() {
           <FooterBox>
             <FooterBoxTitle>Mes réseaux</FooterBoxTitle>
 
-            <FooterLink href='https://github.com/Natchii59' target='blank'>
-              <IoLogoGithub />
-              <span>Github</span>
-            </FooterLink>
-
-            <FooterLink
-              href='https://www.linkedin.com/in/nathan-caron/'
-              target='blank'
-            >
-              <IoLogoLinkedin />
-              <span>LinkedIn</span>
-            </FooterLink>
-
-            <FooterLink href='https://twitter.com/Natchi59/' target='blank'>
-              <IoLogoTwitter />
-              <span>Twitter</span>
-            </FooterLink>
+            {datas.map((d, i) => (
+              <FooterLink href={d.link} target='blank'>
+                {d.logo}
+                <span>{d.name}</span>
+              </FooterLink>
+            ))}
           </FooterBox>
 
           <FooterBox>
             <FooterBoxTitle>Me contacter</FooterBoxTitle>
 
-            <a href='mailto:caron.nathan@hotmail.com' style={{ color: 'var(--onyx)' }}>
+            <a
+              href='mailto:caron.nathan@hotmail.com'
+              style={{ color: 'var(--onyx)' }}
+            >
               caron.nathan@hotmail.com
             </a>
           </FooterBox>
