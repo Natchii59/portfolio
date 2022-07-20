@@ -38,16 +38,12 @@ export const HomeTitle = styled.h1`
 
 export const HomeProfilePicture = styled.img`
   width: 100%;
-  max-width: 35rem;
-  max-height: 35rem;
+  object-fit: cover;
+  max-width: 30rem;
   filter: grayscale(1);
   border-radius: 40rem;
   user-select: none;
-
-  @media screen and (max-width: 1000px) {
-    max-width: 30rem;
-    max-height: 30rem;
-  }
+  margin-bottom: 7rem;
 `;
 
 export const HomeContainer2 = styled.div`
