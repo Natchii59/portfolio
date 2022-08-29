@@ -30,7 +30,7 @@ export default function Footer() {
             <FooterBoxTitle>Me contacter</FooterBoxTitle>
 
             <a
-              href='mailto:caron.nathan@hotmail.com'
+              href='mailto:contact@natchi.dev'
               style={{ color: 'var(--onyx)' }}
             >
               contact@natchi.dev
