@@ -33,7 +33,7 @@ export default function Footer() {
               href='mailto:caron.nathan@hotmail.com'
               style={{ color: 'var(--onyx)' }}
             >
-              caron.nathan@hotmail.com
+              contact@natchi.dev
             </a>
           </FooterBox>
 
