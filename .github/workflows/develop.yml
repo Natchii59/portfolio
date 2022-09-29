@@ -17,4 +17,4 @@ jobs:
           git pull origin develop
           npm i
           npm run build:develop
-          pm2 reload website-develop-serve
+          pm2 reload website-develop

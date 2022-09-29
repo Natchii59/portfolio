@@ -17,4 +17,4 @@ jobs:
           git pull origin master
           npm i
           npm run build:master
-          pm2 reload website-master-serve
+          pm2 reload website-master
