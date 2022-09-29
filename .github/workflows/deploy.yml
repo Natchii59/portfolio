@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: Deploy to production
         run: |
-          cd /home/natchi/Workflow/website/master
+          cd /home/natchi/Workflow/website
           git stash
           git pull origin master
           npm i
-          npm run build
+          npm run build:master
           pm2 reload website-master-serve
