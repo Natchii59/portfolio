@@ -21,8 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:master": "BUILD_PATH='./build/master' react-scripts build",
-    "build:develop": "BUILD_PATH='./build/develop' react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
