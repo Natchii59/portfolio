@@ -1,0 +1,31 @@
+---
+title: 'Études en BTS SIO (SLAM)'
+year: 'Sep. 2021'
+today: true
+sort: 3
+description: 'Je suis actuellement en BTS SIO (Services Informatiques aux Organisations) pour pouvoir découvrir de nouveaux languages, et technologies.'
+---
+
+Je suis actuellement en BTS SIO (Services Informatiques aux Organisations) pour pouvoir découvrir de nouveaux languages, et technologies. Je suis à <a href='https://www.gastonberger.fr/' target='_blank'>Gaston Berger</a>, à Lille. J'y ai pris l'option SLAM qui est orienté dans le développement web et application.
+
+Durant ma première année j'ai pratiqué plusieurs matières dans l'informatique, comme du SLAM, SISR (orienté réseaux), de la Cybersécurité, ainsi que des Activités Professionnels (ce sont des gros projets de programmation en groupe).
+
+### En SLAM j'ai appris:
+
+- Javascript côté navigateur
+- PHP avec intégration d'une base de donnée MySQL
+- Les bases du JAVA
+- Gestion de base de données
+
+### En SISR j'ai appris:
+
+- Créer des machines virtuels
+- Mettre en place un Active Directory sur Windows
+- Installer des RAIDS
+
+### En Cybersécurité j'ai appris:
+
+- Créer une machine Kali-Linux pour déchiffrer des mots de passe
+- Le chiffrement des mots de passe
+
+J'ai choisi de faire ma deuxième année en alternance, en gardant l'option SLAM pour en apprendre d'avantage dans le développement web et application. En SLAM, j'apprends actuellement le C# pour la création d'applications client lourd. Ainsi que le Dart pour des applications mobiles.

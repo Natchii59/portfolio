@@ -1,0 +1,54 @@
+{
+  "nav.languages": "Langues",
+  "nav.menu": "Menu",
+
+  "nav.links.professional": "Professionnel",
+  "nav.links.workflow": "Workflow",
+  "nav.links.projects": "Projets",
+  "nav.links.uses": "Matériels",
+
+  "footer.rights": "Tous droits réservés",
+  "footer.source": "Code source",
+
+  "404.message": "Woops... Tu t'es perdu",
+  "404.button": "Retour à l'accueil",
+
+  "banner.welcome": "Bienvenue sur le",
+  "banner.website": "Site de Natchi",
+
+  "today": "Aujourd'hui",
+
+  "home.meta.title": "Natchi - Page d'accueil",
+  "home.meta.description": "Page d'accueil du site de Natchi",
+
+  "home.status": "Développeur/Étudiant en Alternance",
+  "home.about.title": "À propos de moi",
+  "home.about.text": "Je suis étudiant en alternance et développeur FullStack. J'habite en France, à côté de Lille. J'ai commencé à programmer en 2019 et depuis, cela est devenu ma passion. J'adore coder, pouvoir créer du contenu sur internet. Je suis développeur FullStack, même si je penche plutôt du côté Backend. J'aime aussi faire du design même si ce n'est pas mon point fort. En ligne, ou pas, j'écoute beaucoup de musique. J'ai réalisé plusieurs petits projets pour m'exercer dans plusieurs technologies. Je ne suis jamais à court d'idées.",
+  "home.experience.title": "Mon parcours",
+  "home.experience.see-more": "Voir plus",
+  "home.experience.bac": "Obtention de mon Baccalauréat Général (Options NSI et Maths)",
+  "home.experience.internship-picwic": "Stage développeur Frontend chez PicwicToys",
+  "home.experience.bts-sio": "Études en BTS SIO (Services Informatiques aux Organisation)",
+  "home.experience.work-c2b": "Alternance chez Click2Buy",
+  "home.socials": "Mes réseaux",
+
+  "professional.title": "Mon parcours professionnel",
+
+  "workflow.experience.title": "Mon parcours",
+  "workflow.experience.text-1": "J'ai commencé la programmation en 2019 en créant un bot Discord en Javascript et Node.js. J'ai continué longtemps et uniquement sur ce langage, le confinement en mars 2020 m'a permis de m'y consacré à plein temps. Puis après avoir bien appris de celui-ci, je me suis penché sur le développement web, côté navigateur. C'est ici que j'ai commencé avec Vuejs, puis je suis passé sur React.",
+  "workflow.experience.text-2": "Longtemps plus tard, j'ai découvert Typescript, et lorsque j'ai vu que c'était une version évolué du Javascript, qui était mon langage préféré, je m'y suis exercé sur celui-ci. C'est devenu mon langage principal que j'utilise pratiquement tout le temps dans mes projets. J'ai dû passer à React Typescript, puis je me suis intéressé à la création d'API, où j'ai commencé par des API GraphQL avec le framework NestJS.",
+  "workflow.levels.title": "Mes niveaux",
+
+  "projects.title": "Mes projets",
+  "projects.not": "Je n'ai pas encore mis mes projets en ligne...",
+
+  "uses.title": "Ce que j'utilise",
+  "uses.description": "Voici la liste du matériel que j'utilise tous les jours pour développer mes applications:",
+  "uses.soon": "Bientôt...",
+  "uses.item.macbook": "Macbook Pro M1 13\"",
+  "uses.item.mouse-logitech": "Souris Logitech MX Master 3",
+  "uses.item.keyboard-logitech": "Clavier Logitech K380",
+  "uses.item.mousepad-corsair": "Tapis de souris Corsair MM100",
+  "uses.item.airpods-pro": "AirPods Pro",
+  "uses.item.keychron-q1": "Clavier Keychron Q1"
+}

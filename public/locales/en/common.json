@@ -1,0 +1,54 @@
+{
+  "nav.languages": "Languages",
+  "nav.menu": "Menu",
+
+  "nav.links.professional": "Professional",
+  "nav.links.workflow": "Workflow",
+  "nav.links.projects": "Projects",
+  "nav.links.uses": "Uses",
+
+  "footer.rights": "All rights reserved",
+  "footer.source": "Source code",
+
+  "404.message": "Woops... You got lost",
+  "404.button": "Back to home",
+
+  "banner.welcome": "Welcome to",
+  "banner.website": "Natchi's Website",
+
+  "today": "Today",
+
+  "home.meta.title": "Natchi - Homepage",
+  "home.meta.description": "Natchi's Homepage",
+
+  "home.status": "Developer/Work-Study Program",
+  "home.about.title": "About me",
+  "home.about.text": "I am a student in a work-study program and a FullStack developer. I live in France, near Lille. I started programming in 2019 and since then, it has become my passion. I love coding, being able to create content on the internet. I am a FullStack developer, even if I lean more towards the backend side. I also like to do some design even if it's not my strong point. Online or offline, I listen to a lot of music. I have done several small projects to practice in different technologies. I'm never short of ideas.",
+  "home.experience.title": "My experience ",
+  "home.experience.see-more": "See more",
+  "home.experience.bac": "Baccalaureate General (NSI and Maths options)",
+  "home.experience.internship-picwic": "Frontend developer internship at PicwicToys",
+  "home.experience.bts-sio": "Studies in BTS SIO (Computer Services for Organisations)",
+  "home.experience.work-c2b": "Work experience at Click2Buy",
+  "home.socials": "My social networks",
+
+  "professional.title": "My professional experience",
+
+  "workflow.experience.title": "My experience",
+  "workflow.experience.text-1": "I started programming in 2019 by creating a Discord bot in Javascript and Node.js. I continued for a long time and only on this language, the confinement in March 2020 allowed me to dedicate myself to it full time. Then, after having learned a lot from it, I turned to web development, on the browser side. This is where I started with Vuejs, and then I moved on to React.",
+  "workflow.experience.text-2": "A long time later, I discovered Typescript, and when I saw that it was an advanced version of Javascript, which was my favourite language, I practised on it. It became my main language that I use almost all the time in my projects. I had to switch to React Typescript, and then I got interested in creating APIs, where I started with GraphQL APIs with the NestJS framework.",
+  "workflow.levels.title": "My levels",
+
+  "projects.title": "My projects",
+  "projects.not": "I haven't put my projects online yet...",
+
+  "uses.title": "What I use",
+  "uses.description": "Here is a list of the hardware I use every day to develop my applications:",
+  "uses.soon": "Soon...",
+  "uses.item.macbook": "Macbook Pro M1 13\"",
+  "uses.item.mouse-logitech": "Mouse Logitech MX Master 3",
+  "uses.item.keyboard-logitech": "Keyboard Logitech K380",
+  "uses.item.mousepad-corsair": "Mousepad Corsair MM100",
+  "uses.item.airpods-pro": "AirPods Pro",
+  "uses.item.keychron-q1": "Keyboard Keychron Q1"
+}
