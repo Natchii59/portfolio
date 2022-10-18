@@ -1,13 +1,10 @@
-import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 const Footer: FC = () => {
-  const { t } = useTranslation()
-
   return (
     <footer className='flex flex-col items-center gap-1 font-medium py-6'>
-      <div>© 2022 Natchi. {t('footer.rights')}.</div>
+      <div>© 2022 Natchi. Tous droits réservés.</div>
       <a
         href='https://github.com/Natchii59/website/tree/develop'
         target='_blank'
@@ -16,7 +13,7 @@ const Footer: FC = () => {
       >
         <FaGithub />
         <p className='group-hover:underline group-focus-visible:underline'>
-          {t('footer.source')}
+          Code source
         </p>
       </a>
     </footer>

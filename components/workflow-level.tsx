@@ -2,7 +2,7 @@ import { useInView, motion } from 'framer-motion'
 import type { FC } from 'react'
 import { useRef } from 'react'
 
-import { LevelType } from '@utils/datas'
+import { LevelType } from '@/lib/datas'
 
 interface WorkflowLevelProps {
   level: LevelType

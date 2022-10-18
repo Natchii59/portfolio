@@ -1,14 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { workflowLevels } from '@utils/datas'
-import WorkflowLevel from '@components/workflow-level'
+import { workflowLevels } from '@/lib/datas'
+import WorkflowLevel from '@/components/workflow-level'
 
 const Workflow: NextPage = () => {
-  const { t } = useTranslation()
-
   return (
     <>
       <Head>
@@ -25,19 +21,36 @@ const Workflow: NextPage = () => {
 
       <div className='mb-6'>
         <h3 className='underline underline-offset-2 font-semibold text-xl mb-2'>
-          {t('workflow.experience.title')}
+          Mon parcours
         </h3>
 
         <div className='indent-4 text-justify'>
-          <p className='mb-2'>{t('workflow.experience.text-1')}</p>
+          <p className='mb-2'>
+            J&apos;ai commencé la programmation en 2019 en créant un bot Discord
+            en Javascript et Node.js. J&apos;ai continué longtemps et uniquement
+            sur ce langage, le confinement en mars 2020 m&apos;a permis de
+            m&apos;y consacré à plein temps. Puis après avoir bien appris de
+            celui-ci, je me suis penché sur le développement web, côté
+            navigateur. C&apos;est ici que j&apos;ai commencé avec Vuejs, puis
+            je suis passé sur React.
+          </p>
 
-          <p>{t('workflow.experience.text-2')}</p>
+          <p>
+            Longtemps plus tard, j&apos;ai découvert Typescript, et lorsque
+            j&apos;ai vu que c&apos;était une version évolué du Javascript, qui
+            était mon langage préféré, je m&apos;y suis exercé sur celui-ci.
+            C&apos;est devenu mon langage principal que j&apos;utilise
+            pratiquement tout le temps dans mes projets. J&apos;ai dû passer à
+            React Typescript, puis je me suis intéressé à la création
+            d&apos;API, où j&apos;ai commencé par des API GraphQL avec le
+            framework NestJS.
+          </p>
         </div>
       </div>
 
       <div>
         <h3 className='underline underline-offset-2 font-semibold text-xl mb-2'>
-          {t('workflow.levels.title')}
+          Mes niveaux
         </h3>
 
         <div>
@@ -48,14 +61,6 @@ const Workflow: NextPage = () => {
       </div>
     </>
   )
-}
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale!))
-    }
-  }
 }
 
 export default Workflow

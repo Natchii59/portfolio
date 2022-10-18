@@ -1,11 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
 
 const Projects: NextPage = () => {
-  const { t } = useTranslation()
-
   return (
     <>
       <Head>
@@ -17,20 +13,12 @@ const Projects: NextPage = () => {
       </Head>
 
       <h1 className='text-orange-400 text-4xl font-bold tracking-wide font-nunito mb-4'>
-        {t('projects.title')}
+        Mes projets
       </h1>
 
-      <p>{t('projects.not')}</p>
+      <p>Je n&apos;ai pas encore mis mes projets en ligne...</p>
     </>
   )
-}
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale!))
-    }
-  }
 }
 
 export default Projects

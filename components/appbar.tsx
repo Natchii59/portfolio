@@ -3,7 +3,6 @@ import type { FC } from 'react'
 
 import Links from './links'
 import BurgerMenu from './burger-menu'
-import LangToggle from './lang-toggle'
 import NextLink from './next-link'
 import ThemeToggle from './theme-toggle'
 
@@ -22,8 +21,6 @@ const Appbar: FC = () => {
         <Links />
 
         <div className='flex-1' />
-
-        <LangToggle />
 
         <ThemeToggle />
 

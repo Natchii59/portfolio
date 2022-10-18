@@ -43,27 +43,27 @@ export enum LANG_NAME {
 }
 
 export interface HomeExperienceType {
-  slug: string
+  name: string
   year: number
   today?: boolean
 }
 
 export const homeExperiences: HomeExperienceType[] = [
   {
-    slug: 'bac',
+    name: 'Obtention de mon Baccalauréat Général (Options NSI et Maths)',
     year: 2021
   },
   {
-    slug: 'bts-sio',
+    name: 'Études en BTS SIO (Services Informatiques aux Organisation)',
     year: 2021,
     today: true
   },
   {
-    slug: 'internship-picwic',
+    name: 'Stage développeur Frontend chez PicwicToys',
     year: 2022
   },
   {
-    slug: 'work-c2b',
+    name: 'Alternance chez Click2Buy',
     year: 2022,
     today: true
   }
@@ -94,34 +94,44 @@ export const homeSocials: HomeSocialType[] = [
 ]
 
 export interface UsesType {
-  slug: string
+  name: string
   url: string
   has: boolean
 }
 
 export const uses: UsesType[] = [
   {
-    slug: 'macbook',
+    name: 'Macbook Pro M1 13"',
     url: 'https://support.apple.com/kb/SP824',
     has: true
   },
   {
-    slug: 'mouse-logitech',
+    name: 'Souris Logitech MX Master 3',
     url: 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjOuLiUt9b6AhUC4RoKHdEiBQoQFnoECCUQAQ&url=https%3A%2F%2Fwww.amazon.fr%2FLogitech-R%25C3%25A9cepteur-D%25C3%25A9filement-Confortable-Rechargeable%2Fdp%2FB07W6JG6Z7&usg=AOvVaw1GMp6LYkyAfBE7cNJD1KjE',
     has: true
   },
   {
-    slug: 'keyboard-logitech',
+    name: 'Clavier Logitech K380',
     url: 'https://www.logitech.com/products/keyboards/k380-multi-device.html',
     has: true
   },
   {
-    slug: 'mousepad-corsair',
+    name: 'Tapis de souris Corsair MM100',
     url: 'https://www.corsair.com/Catégories/Produits/Tapis-de-souris-gaming/Tapis-de-souris-gaming-en-tissu-MM100/p/CH-9100020-WW',
     has: true
   },
   {
-    slug: 'keychron-q1',
+    name: 'Écran externe Samsung M5 32"',
+    url: 'https://www.samsung.com/fr/monitors/smart/smart-m5-32-inch-ls32am500nrxen/',
+    has: true
+  },
+  {
+    name: 'Airpods Pro',
+    url: 'https://www.amazon.fr/Apple-AirPods-avec-Chargeur-MagSafe/dp/B09JQZ5DYM',
+    has: true
+  },
+  {
+    name: 'Clavier Keychron Q1 Custom',
     url: 'https://www.keychron.com/products/keychron-q1',
     has: false
   }

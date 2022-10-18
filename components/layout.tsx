@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -9,7 +8,6 @@ import Appbar from './appbar'
 import Footer from './footer'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
-  const { t } = useTranslation()
   const { asPath } = useRouter()
 
   return (
@@ -62,10 +60,10 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
             >
               {asPath === '/' && (
                 <>
-                  <h2>{t('banner.welcome')}</h2>
+                  <h2>Bienvenue sur le</h2>
 
                   <h1 className='text-2xl lg:text-4xl text-orange-400'>
-                    {t('banner.website')}
+                    Site de Natchi
                   </h1>
                 </>
               )}

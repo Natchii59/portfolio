@@ -1,9 +1,7 @@
 import type { AppProps } from 'next/app'
-import { appWithTranslation } from 'next-i18next'
 
 import '@/styles/globals.css'
-import Layout from '@components/layout'
-import NextI18NextConfig from '@/next-i18next.config'
+import Layout from '@/components/layout'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,4 +11,4 @@ function App({ Component, pageProps }: AppProps) {
   )
 }
 
-export default appWithTranslation(App, NextI18NextConfig)
+export default App

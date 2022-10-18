@@ -1,15 +1,13 @@
 import type { Dispatch, FC, SetStateAction } from 'react'
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-
-import type { ExperienceType } from '@pages/professional'
 import { FaTimes } from 'react-icons/fa'
-import { useTranslation } from 'next-i18next'
-import { marked } from 'marked'
+import { DetailsSerialize } from '@/lib/professional'
+import { MDXRemote } from 'next-mdx-remote'
 
 interface ProfessionalDetailsProps {
-  details: ExperienceType | null
-  setDetails: Dispatch<SetStateAction<ExperienceType | null>>
+  details: DetailsSerialize | null
+  setDetails: Dispatch<SetStateAction<DetailsSerialize | null>>
   show: boolean
   setShow: Dispatch<SetStateAction<boolean>>
 }
@@ -20,8 +18,6 @@ const ProfessionalDetails: FC<ProfessionalDetailsProps> = ({
   show,
   setShow
 }) => {
-  const { t } = useTranslation()
-
   return (
     <Transition show={show} as={Fragment} afterLeave={() => setDetails(null)}>
       <Dialog
@@ -58,7 +54,7 @@ const ProfessionalDetails: FC<ProfessionalDetailsProps> = ({
                   className='flex items-center justify-between'
                 >
                   <h2 className='text-2xl font-semibold'>
-                    {details?.frontMatter.title}
+                    {details?.meta.title}
                   </h2>
 
                   <button
@@ -70,20 +66,15 @@ const ProfessionalDetails: FC<ProfessionalDetailsProps> = ({
                 </Dialog.Title>
 
                 <div className='text-lg font-medium'>
-                  {details?.frontMatter.year}
-                  {details?.frontMatter.today && ` - ${t('today')}`}
+                  {details?.meta.year}
+                  {details?.meta.today && " - Aujourd'hui"}
                 </div>
 
                 <div className='border-t border-zinc-400 my-4'></div>
 
-                {details && (
-                  <div
-                    className='prose dark:prose-dark'
-                    dangerouslySetInnerHTML={{
-                      __html: marked(details.content)
-                    }}
-                  />
-                )}
+                <div className='prose dark:prose-dark'>
+                  {details && <MDXRemote {...details.source} />}
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
