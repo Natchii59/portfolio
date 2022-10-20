@@ -133,7 +133,7 @@ export const uses: UsesType[] = [
   {
     name: 'Clavier Keychron Q1 Custom',
     url: 'https://www.keychron.com/products/keychron-q1',
-    has: false
+    has: true
   }
 ]
 
@@ -161,12 +161,12 @@ export const workflowLevels: LevelType[] = [
   },
   {
     name: 'Next.js',
-    level: 40,
+    level: 55,
     icon: <SiNextdotjs />
   },
   {
     name: 'Nestjs',
-    level: 80,
+    level: 75,
     icon: <SiNestjs />
   },
   {
@@ -186,7 +186,7 @@ export const workflowLevels: LevelType[] = [
   },
   {
     name: 'Ruby on Rails',
-    level: 35,
+    level: 40,
     icon: <SiRubyonrails />
   },
   {
@@ -196,7 +196,7 @@ export const workflowLevels: LevelType[] = [
   },
   {
     name: 'Git',
-    level: 70,
+    level: 75,
     icon: <SiGit />
   }
 ]
