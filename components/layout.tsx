@@ -45,6 +45,7 @@ const Layout: LayoutProps = ({ children, rickroll }) => {
             {rickroll ? (
               <video
                 loop
+                playsInline
                 className='w-full h-full object-cover'
                 id='rickroll-video'
               >
