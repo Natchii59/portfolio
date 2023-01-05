@@ -31,9 +31,23 @@ const Professional: NextPage<ProfessionalProps> = ({ details }) => {
         <meta name='og:title' content='Natchi - Professional' />
       </Head>
 
-      <h1 className='text-orange-400 text-4xl font-bold font-nunito'>
+      <h1 className='text-orange-400 text-4xl font-bold font-nunito mb-4'>
         Mon parcours professionnel
       </h1>
+
+      <div className='mb-6'>
+        <h3 className='underline underline-offset-2 font-semibold text-xl mb-2'>
+          Mon projet professionnel
+        </h3>
+
+        <p className='indent-4 text-justify'>
+          J&apos;aimerais poursuivre mes études de développement web durant une
+          3ème année, et peut être par la suite poursuivre avec un master. Après
+          mes études, j&apos;aimerais travailler dans une boite en tant que
+          développeur web (frontend/backend/fullstack), et plus tard travailler
+          en freelance lorsque j&apos;aurais les capacités pour faire cela.
+        </p>
+      </div>
 
       <div className='p-4'>
         {details.map((det, i) => (

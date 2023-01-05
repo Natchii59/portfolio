@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import NextLink from '@/components/next-link'
 
-const NotFound: NextPage = () => {
+const NotFound: NextPage<{ setRickroll: any }> = ({ setRickroll }) => {
   return (
     <>
       <Head>
@@ -16,7 +16,20 @@ const NotFound: NextPage = () => {
 
       <div className='text-center flex flex-col items-center gap-4'>
         <h1 className='text-3xl font-nunito font-bold'>
-          Woops... Tu t&apos;es perdu
+          Woops... Tu t&apos;es pe
+          <span
+            className='hover:text-orange-400 cursor-pointer'
+            onClick={async () => {
+              await setRickroll(true)
+              const video = document.getElementById(
+                'rickroll-video'
+              ) as HTMLVideoElement
+              video.play()
+            }}
+          >
+            r
+          </span>
+          du
         </h1>
 
         <NextLink

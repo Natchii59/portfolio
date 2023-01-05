@@ -7,7 +7,13 @@ import type { FC, PropsWithChildren } from 'react'
 import Appbar from './appbar'
 import Footer from './footer'
 
-const Layout: FC<PropsWithChildren> = ({ children }) => {
+type LayoutProps = FC<
+  PropsWithChildren & {
+    rickroll: boolean
+  }
+>
+
+const Layout: LayoutProps = ({ children, rickroll }) => {
   const { asPath } = useRouter()
 
   return (
@@ -36,14 +42,24 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <div className='pt-[68px] md:pt-[66px]'>
         <div className='relative'>
           <div className='relative w-full h-44 lg:h-80 opacity-30'>
-            <Image
-              src='/banner.gif'
-              alt='Banner'
-              priority={true}
-              layout='fill'
-              objectFit='cover'
-              objectPosition='center 75%'
-            />
+            {rickroll ? (
+              <video
+                loop
+                className='w-full h-full object-cover'
+                id='rickroll-video'
+              >
+                <source src='/rickroll.mp4' type='video/mp4' />
+              </video>
+            ) : (
+              <Image
+                src='/banner.gif'
+                alt='Banner'
+                priority={true}
+                layout='fill'
+                objectFit='cover'
+                objectPosition='center 75%'
+              />
+            )}
           </div>
 
           <AnimatePresence initial={true} mode='wait'>
