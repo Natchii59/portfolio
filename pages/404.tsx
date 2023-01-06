@@ -1,9 +1,12 @@
-import { GetStaticProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import Head from 'next/head'
 
 import NextLink from '@/components/next-link'
+import { Dispatch, SetStateAction } from 'react'
 
-const NotFound: NextPage<{ setRickroll: any }> = ({ setRickroll }) => {
+const NotFound: NextPage<{
+  setRickroll: Dispatch<SetStateAction<boolean>>
+}> = ({ setRickroll }) => {
   return (
     <>
       <Head>

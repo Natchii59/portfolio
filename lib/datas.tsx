@@ -200,3 +200,78 @@ export const workflowLevels: LevelType[] = [
     icon: <SiGit />
   }
 ]
+
+export interface ProjectType {
+  name: string
+  description: string
+  github: string
+  languages: ProjectLanguageType[]
+}
+
+export interface ProjectLanguageType {
+  name: string
+  color: string
+}
+
+export const projects: ProjectType[] = [
+  {
+    name: 'Portfolio',
+    description:
+      'Site web présentant mon parcours professionnel ainsi que mon niveau dans des langages informatique.',
+    github: 'https://github.com/Natchii59/website',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'Next.js',
+        color: '#000000'
+      },
+      {
+        name: 'Tailwind CSS',
+        color: '#38b2ac'
+      }
+    ]
+  },
+  {
+    name: 'Discord Bot',
+    description:
+      'Bot Discord créé avec Discord.js qui sert à pouvoir se créer un "profil" et ajouter des liens qui redirigent vers les réseaux sociaux de l\'utilisateur.',
+    github: 'https://github.com/Jukial/jukial_bot',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'Discord.js',
+        color: '#000000'
+      },
+      {
+        name: 'PostgreSQL',
+        color: '#336791'
+      }
+    ]
+  },
+  {
+    name: 'Backend API',
+    description:
+      'Backend qui permet de se créer un compte avec système de login (JWT) et de pouvoir créer des posts, ajouter des commentaires, etc...',
+    github: 'https://github.com/Natchii59/nest-app',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'Nest.js',
+        color: '#e0234e'
+      },
+      {
+        name: 'PostgreSQL',
+        color: '#336791'
+      }
+    ]
+  }
+]

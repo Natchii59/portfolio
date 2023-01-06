@@ -1,4 +1,6 @@
-import type { GetStaticProps, NextPage } from 'next'
+import Project from '@/components/project'
+import { projects } from '@/lib/datas'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 
 const Projects: NextPage = () => {
@@ -16,7 +18,11 @@ const Projects: NextPage = () => {
         Mes projets
       </h1>
 
-      <p>Je n&apos;ai pas encore mis mes projets en ligne...</p>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+        {projects.map((project, i) => (
+          <Project project={project} key={i} />
+        ))}
+      </div>
     </>
   )
 }
