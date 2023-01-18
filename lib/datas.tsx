@@ -106,11 +106,6 @@ export const uses: UsesType[] = [
     has: true
   },
   {
-    name: 'Souris Logitech MX Master 3',
-    url: 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjOuLiUt9b6AhUC4RoKHdEiBQoQFnoECCUQAQ&url=https%3A%2F%2Fwww.amazon.fr%2FLogitech-R%25C3%25A9cepteur-D%25C3%25A9filement-Confortable-Rechargeable%2Fdp%2FB07W6JG6Z7&usg=AOvVaw1GMp6LYkyAfBE7cNJD1KjE',
-    has: true
-  },
-  {
     name: 'Clavier Logitech K380',
     url: 'https://www.logitech.com/products/keyboards/k380-multi-device.html',
     has: true
@@ -133,6 +128,11 @@ export const uses: UsesType[] = [
   {
     name: 'Clavier Keychron Q1 Custom',
     url: 'https://www.keychron.com/products/keychron-q1',
+    has: true
+  },
+  {
+    name: 'Magic Trackpad',
+    url: 'https://www.apple.com/fr/shop/product/MMMP3Z/A/magic-trackpad-surface-multi-touch-noir',
     has: true
   }
 ]
