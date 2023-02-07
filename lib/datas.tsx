@@ -1,5 +1,6 @@
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import {
+  SiC,
   SiGit,
   SiGraphql,
   SiJava,
@@ -151,17 +152,17 @@ export const workflowLevels: LevelType[] = [
   },
   {
     name: 'Node.js',
-    level: 80,
+    level: 90,
     icon: <SiNodedotjs />
   },
   {
     name: 'React',
-    level: 70,
+    level: 80,
     icon: <SiReact />
   },
   {
     name: 'Next.js',
-    level: 55,
+    level: 70,
     icon: <SiNextdotjs />
   },
   {
@@ -176,18 +177,23 @@ export const workflowLevels: LevelType[] = [
   },
   {
     name: 'Vuejs',
-    level: 50,
+    level: 60,
     icon: <SiVuedotjs />
   },
   {
     name: 'Ruby',
-    level: 40,
+    level: 50,
     icon: <SiRuby />
   },
   {
     name: 'Ruby on Rails',
-    level: 40,
+    level: 50,
     icon: <SiRubyonrails />
+  },
+  {
+    name: 'C',
+    level: 40,
+    icon: <SiC />
   },
   {
     name: 'Java',

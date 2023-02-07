@@ -41,11 +41,19 @@ const Professional: NextPage<ProfessionalProps> = ({ details }) => {
         </h3>
 
         <p className='indent-4 text-justify'>
-          J&apos;aimerais poursuivre mes études de développement web durant une
-          3ème année, et peut être par la suite poursuivre avec un master. Après
-          mes études, j&apos;aimerais travailler dans une boite en tant que
-          développeur web (frontend/backend/fullstack), et plus tard travailler
-          en freelance lorsque j&apos;aurais les capacités pour faire cela.
+          J&apos;aimerais poursuivre mes études de développement web à{' '}
+          <a
+            href='https://www.42lehavre.fr/'
+            target='_blank'
+            rel='noreferrer'
+            className='link-underline'
+          >
+            l&apos;école 42 au Havre
+          </a>
+          . Après mes études, j&apos;aimerais travailler dans une boite en tant
+          que développeur web (frontend/backend/fullstack), et plus tard
+          travailler en freelance lorsque j&apos;aurais les capacités pour faire
+          cela.
         </p>
       </div>
 
