@@ -1,11 +1,16 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSpotify } from 'react-icons/fa'
 
 import NextLink from '@/components/next-link'
 import { homeExperiences, homeSocials } from '@/lib/datas'
+import Image from 'next/image'
 
-const Home: NextPage = () => {
+interface HomeProps {
+  spotify: any
+}
+
+const Home: NextPage<HomeProps> = ({ spotify }) => {
   return (
     <>
       <Head>
@@ -84,8 +89,96 @@ const Home: NextPage = () => {
           </a>
         ))}
       </div>
+
+      {spotify.is_playing ? (
+        <>
+          <h3 className='font-semibold text-xl flex items-center gap-2'>
+            <FaSpotify />
+            En écoute
+          </h3>
+
+          <div className='flex flex-col items-start'>
+            <div className='p-3 border border-zinc-400 dark:border-zinc-700 rounded-md flex items-center gap-4 mt-2 mb-6'>
+              <a
+                href={spotify.item.external_urls.spotify}
+                target='_blank'
+                rel='noreferrer'
+                className='flex'
+              >
+                <Image
+                  src={spotify.item.album.images[0].url}
+                  alt={spotify.item.name}
+                  width={70}
+                  height={70}
+                  className='rounded-md'
+                />
+              </a>
+
+              <div>
+                <div className='flex items-center gap-2'>
+                  <div className='song-animated'>
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+
+                  <a
+                    href={spotify.item.external_urls.spotify}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='font-bold'
+                  >
+                    {spotify.item.name}
+                  </a>
+                </div>
+
+                <p className='text-zinc-500 dark:text-zinc-400'>
+                  {spotify.item.artists
+                    .map((artist: any) => (
+                      <a
+                        key={artist.id}
+                        href={artist.external_urls.spotify}
+                        target='_blank'
+                        rel='noreferrer'
+                        className='hover:underline hover:underline-offset-2'
+                      >
+                        {artist.name}
+                      </a>
+                    ))
+                    .reduce((prev: any, curr: any) => [prev, ', ', curr])}
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <h3 className='font-semibold text-xl flex items-center gap-2 mb-6'>
+          <FaSpotify />
+          Hors ligne
+        </h3>
+      )}
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const result = await fetch(
+    'https://api.spotify.com/v1/me/player/currently-playing',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.SPOTIFY_ACCESS_TOKEN}`
+      }
+    }
+  )
+
+  const data = await result.json()
+
+  return {
+    props: {
+      spotify: data
+    }
+  }
 }
 
 export default Home
