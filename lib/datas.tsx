@@ -221,6 +221,46 @@ export interface ProjectLanguageType {
 
 export const projects: ProjectType[] = [
   {
+    name: 'Twitter API',
+    description:
+      "Clone de l'API (en GraphQL) de Twitter avec Nest.js et PostgreSQL. Permet de créer un compte, de se connecter, de poster des tweets, de liker des tweets, de se suivre, etc.",
+    github: 'https://github.com/Natchii59/twitter-api',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'Nest.js',
+        color: '#e0234e'
+      },
+      {
+        name: 'GraphQL',
+        color: '#e10098'
+      }
+    ]
+  },
+  {
+    name: 'Twitter Client',
+    description:
+      "Clone de l'application Twitter avec React (Vite) avec intégration de l'API. Permet de créer un compte, de se connecter, de poster des tweets, de liker des tweets, de se suivre, etc.",
+    github: 'https://github.com/Natchii59/twitter-client',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'React',
+        color: '#61dafb'
+      },
+      {
+        name: 'Redux',
+        color: '#764abc'
+      }
+    ]
+  },
+  {
     name: 'Portfolio',
     description:
       'Site web présentant mon parcours professionnel ainsi que mon niveau dans des langages informatique.',
@@ -253,26 +293,6 @@ export const projects: ProjectType[] = [
       {
         name: 'Discord.js',
         color: '#000000'
-      },
-      {
-        name: 'PostgreSQL',
-        color: '#336791'
-      }
-    ]
-  },
-  {
-    name: 'Backend API',
-    description:
-      'Backend qui permet de se créer un compte avec système de login (JWT) et de pouvoir créer des posts, ajouter des commentaires, etc...',
-    github: 'https://github.com/Natchii59/nest-app',
-    languages: [
-      {
-        name: 'Typescript',
-        color: '#3178c6'
-      },
-      {
-        name: 'Nest.js',
-        color: '#e0234e'
       },
       {
         name: 'PostgreSQL',
