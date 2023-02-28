@@ -35,6 +35,10 @@ export const links: LinkType[] = [
   {
     name: 'Matériels',
     slug: 'uses'
+  },
+  {
+    name: 'Veille',
+    slug: 'monitoring'
   }
 ]
 
