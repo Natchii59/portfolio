@@ -4,7 +4,7 @@ import Script from 'next/script'
 class CustomDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang='fr'>
         <Head />
         <body className='bg-orange-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-300 break-words leading-6 transition-colors duration-500'>
           <Main />
