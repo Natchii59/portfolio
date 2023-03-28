@@ -35,17 +35,8 @@ export const links: LinkType[] = [
   {
     name: 'Matériels',
     slug: 'uses'
-  },
-  {
-    name: 'Veille',
-    slug: 'monitoring'
   }
 ]
-
-export enum LANG_NAME {
-  fr = 'Français',
-  en = 'English'
-}
 
 export interface HomeExperienceType {
   name: string
@@ -224,6 +215,54 @@ export interface ProjectLanguageType {
 }
 
 export const projects: ProjectType[] = [
+  {
+    name: 'ChatApp API',
+    description:
+      "API (en GraphQL) de chat avec Nest.js, Socket.io et PostgreSQL. Permet de créer un compte, de se connecter, d'envoyer des messages, de créer des salons, etc.",
+    github: 'https://github.com/Natchii59/chat-api',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'Nest.js',
+        color: '#e0234e'
+      },
+      {
+        name: 'GraphQL',
+        color: '#e10098'
+      },
+      {
+        name: 'Socket.io',
+        color: '#010101'
+      }
+    ]
+  },
+  {
+    name: 'ChatApp Client',
+    description:
+      "Application de chat avec React (Vite) et Socket.io avec intégration de l'API. Permet de créer un compte, de se connecter, d'envoyer des messages, de créer des salons, etc.",
+    github: 'https://github.com/Natchii59/chat-client',
+    languages: [
+      {
+        name: 'Typescript',
+        color: '#3178c6'
+      },
+      {
+        name: 'React',
+        color: '#61dafb'
+      },
+      {
+        name: 'Redux',
+        color: '#764abc'
+      },
+      {
+        name: 'Socket.io',
+        color: '#010101'
+      }
+    ]
+  },
   {
     name: 'Twitter API',
     description:
