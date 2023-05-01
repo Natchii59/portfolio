@@ -1,0 +1,436 @@
+---
+title: NestJS + JWT
+description: Créer un système d'authentification JWT avec NestJS
+---
+
+## Sujet
+
+Je voudrais vous parler de la mise en place d'une authentification basée sur les JSON Web Tokens (JWT) avec un système de refresh token en utilisant NestJS et TypeORM.
+
+## JWT
+
+### 1. Qu'est-ce qu'un JWT ?
+
+Un JSON Web Token (JWT) est un standard ouvert pour créer des tokens d'accès qui permettent d'assurer la sécurité de l'échange d'informations entre deux parties. Un JWT est constitué de trois parties : un en-tête, une charge utile et une signature.
+
+### 2. Pourquoi utiliser un Refresh Token ?
+
+Un refresh token est utilisé pour générer un nouveau token d'accès lorsque l'ancien expire. Cela permet à l'utilisateur de rester authentifié sans avoir à se reconnecter, améliorant ainsi l'expérience utilisateur.
+
+## NestJS
+
+NestJS est un framework Node.js qui permet de créer des applications backend robustes et évolutives. Il est basé sur Express et combine les concepts de programmation orientée objet, de programmation fonctionnelle et de programmation réactive.
+
+## Création du système d'authentification
+
+Il existe plusieurs packages qui permettent de mettre en place un système d'authentification basé sur les JWT. Dans cet article, nous allons utiliser le package `@nestjs/jwt` qui permet de générer et de vérifier les tokens d'accès et le package `passport-jwt` qui permet de créer des stratégies d'authentification basées sur les JWT.
+
+```bash
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt
+```
+
+Nous pouvons maintenant créer un module `AuthModule` qui va contenir tous les services et les contrôleurs liés à l'authentification.
+
+```typescript title="auth/auth.module.ts"
+@Module({
+  providers: [AuthService]
+})
+export class AuthModule {}
+```
+
+### Les différentes fonctions du service d'authentification
+
+Le service d'authentification va contenir toutes les fonctions liées à l'authentification. Au préalable, il vous faudra votre entité `User` et votre service `UserService` qui va permettre de récupérer les informations de l'utilisateur dans la base de données.
+
+```typescript title="auth/auth.service.ts"
+@Injectable()
+export class AuthService {
+  constructor(
+    @Inject(UserService) private readonly userService: UserService,
+    @Inject(JwtService) private readonly jwtService: JwtService
+  ) {}
+}
+```
+
+Nous allons créer une fonction `validateUser` qui va permettre de vérifier si l'utilisateur existe dans la base de données. Puis vérifier si le mot de passe est correct grâce à la fonction `compare` du package `bcrypt`.
+
+```typescript title="auth/auth.service.ts"
+@Injectable()
+export class AuthService {
+  // ...
+  async validateUser(
+    username: User['username'],
+    password: User['password']
+  ): Promise<UserPayload | null> {
+    const user = await this.userService.findOne({
+      where: { username }
+    })
+
+    if (user && (await compare(password, user.password))) {
+      return {
+        id: user.id
+      }
+    }
+
+    return null
+  }
+  // ...
+}
+```
+
+Nous allons créer une fonction `login` qui va permettre à l'utilisateur de se connecter et de récupérer un token d'accès et un refresh token via les cookies.
+
+```typescript title="auth/auth.service.ts"
+@Injectable()
+export class AuthService {
+  // ...
+  async signIn(payload: UserPayload, res: Response): Promise<User> {
+    const tokens = await this.getTokens(payload)
+    await this.updateRefreshToken(payload.id, tokens.refreshToken)
+
+    res.cookie('accessToken', tokens.accessToken, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60,
+      sameSite: 'strict',
+      secure: process.env.NODE_ENV === 'production'
+    })
+
+    res.cookie('refreshToken', tokens.refreshToken, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      sameSite: 'strict',
+      secure: process.env.NODE_ENV === 'production'
+    })
+
+    return await this.userService.findOne({
+      where: { id: payload.id }
+    })
+  }
+  // ...
+}
+```
+
+La fonction `getTokens` va permettre de générer un token d'accès et un refresh token.
+
+```typescript title="auth/auth.service.ts"
+@Injectable()
+export class AuthService {
+  // ...
+  async getTokens(payload: UserPayload): Promise<TokensOutput> {
+    const [accessToken, refreshToken] = await Promise.all([
+      this.jwtService.signAsync(payload, {
+        secret: process.env.JWT_ACCESS_TOKEN_SECRET,
+        expiresIn: '1h'
+      }),
+      this.jwtService.signAsync(payload, {
+        secret: process.env.JWT_REFRESH_TOKEN_SECRET,
+        expiresIn: '7d'
+      })
+    ])
+
+    return {
+      accessToken,
+      refreshToken
+    }
+  }
+  // ...
+}
+```
+
+Puis la fonction `updateRefreshToken` va permettre de mettre à jour le refresh token de l'utilisateur dans la base de données.
+
+```typescript title="auth/auth.service.ts"
+@Injectable()
+export class AuthService {
+  // ...
+  async updateRefreshToken(
+    id: User['id'],
+    refreshToken: User['refreshToken'] | null
+  ): Promise<void> {
+    if (refreshToken) refreshToken = await hashData(refreshToken)
+    await this.userService.update(id, { refreshToken })
+  }
+  // ...
+}
+```
+
+Pour générer un nouveau accessToken à partir d'un refreshToken, nous allons créer une fonction `refreshTokens` qui va permettre de vérifier le refreshToken et de générer un nouveau accessToken.
+
+```typescript title="auth/auth.service.ts"
+@Injectable()
+export class AuthService {
+  // ...
+  async refreshTokens(
+    id: User['id'],
+    context: { req: Request; res: Response }
+  ): Promise<TokensOutput> {
+    const user = await this.userService.findOne({
+      where: { id }
+    })
+
+    if (!user) throw new UserNotFoundException()
+
+    const refreshToken = context.req.cookies['refreshToken']
+
+    if (!refreshToken)
+      throw new UnauthorizedException('Refresh token not provided.')
+
+    const matchTokens = await compare(refreshToken, user.refreshToken)
+
+    if (!matchTokens) throw new UnauthorizedException('Invalid refresh token.')
+
+    const tokens = await this.getTokens({
+      id: user.id
+    })
+
+    await this.updateRefreshToken(id, tokens.refreshToken)
+
+    context.res.cookie('accessToken', tokens.accessToken, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60,
+      sameSite: 'strict',
+      secure: process.env.NODE_ENV === 'production'
+    })
+
+    context.res.cookie('refreshToken', tokens.refreshToken, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      sameSite: 'strict',
+      secure: process.env.NODE_ENV === 'production'
+    })
+
+    return tokens
+  }
+  // ...
+}
+```
+
+### Création des stratégies d'authentification
+
+Il vous faudra ensuite créer une fichier d'environnement `.env` qui va contenir les clés secrètes pour générer les tokens.
+
+```bash
+JWT_ACCESS_TOKEN_SECRET=secret
+JWT_REFRESH_TOKEN_SECRET=secret
+```
+
+Nous allons ensuite créer une stratégie d'authentification basée sur les JWT qui va permettre de vérifier le token d'accès.
+
+```typescript title="auth/strategies/jwt.strategy.ts"
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
+  constructor() {
+    super({
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        JwtStrategy.extractJwtFromCookies
+      ]),
+      ignoreExpiration: false,
+      secretOrKey: process.env.JWT_ACCES_TOKEN_SECRET
+    })
+  }
+
+  private static extractJwtFromCookies(req: Request): string | null {
+    if (
+      req.cookies &&
+      'accessToken' in req.cookies &&
+      req.cookies['accessToken'].length > 0
+    ) {
+      return req.cookies['accessToken']
+    }
+
+    return null
+  }
+
+  validate(payload: JwtValidatePayload): UserPayload {
+    if (!payload) return null
+
+    return {
+      id: payload.id
+    }
+  }
+}
+```
+
+Puis une stratégie d'authentification basée sur les cookies qui va permettre de vérifier le refreshToken.
+
+```typescript title="auth/strategies/cookie.strategy.ts"
+@Injectable()
+export class JwtRefreshStrategy extends PassportStrategy(
+  Strategy,
+  'jwt-refresh'
+) {
+  constructor() {
+    super({
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        JwtRefreshStrategy.extractJwtFromCookies
+      ]),
+      ignoreExpiration: false,
+      secretOrKey: process.env.JWT_REFRESH_TOKEN_SECRET
+    })
+  }
+
+  private static extractJwtFromCookies(req: Request): string | null {
+    if (
+      req.cookies &&
+      'refreshToken' in req.cookies &&
+      req.cookies['refreshToken'].length > 0
+    ) {
+      return req.cookies['refreshToken']
+    }
+
+    return null
+  }
+
+  validate(payload: JwtValidatePayload): UserPayload {
+    if (!payload) return null
+
+    return {
+      id: payload.id
+    }
+  }
+}
+```
+
+Pour pouvoir se connecter via un email/username et un mot de passe, il nous faudra pour finir une stratégie locale, où nous allons vérifier que l'utilisateur grâce à notre fonction `validateUser`.
+
+```typescript title="auth/strategies/local.strategy.ts"
+@Injectable()
+export class LocalStrategy extends PassportStrategy(Strategy) {
+  constructor(@Inject(AuthService) private readonly authService: AuthService) {
+    super()
+  }
+
+  async validate(
+    username: User['username'],
+    password: User['password']
+  ): Promise<UserPayload> {
+    const user = await this.authService.validateUser(username, password)
+
+    if (!user) throw new UnauthorizedException('Invalid credentials.')
+
+    return user
+  }
+}
+```
+
+### Mise à jour du module AuthModule
+
+Nous allons ensuite mettre à jour notre module `AuthModule` pour y ajouter les stratégies d'authentification, ainsi que les modules JWT et Passport.
+
+```typescript title="auth/auth.module.ts" {3,4,5,6,7,8,9,10,11,15,16,17}
+@Module({
+  imports: [
+    UserModule,
+    PassportModule,
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        secret: config.getOrThrow('JWT_ACCES_TOKEN_SECRET')
+      })
+    })
+  ],
+  providers: [
+    AuthService
+    LocalStrategy,
+    JwtStrategy,
+    JwtRefreshStrategy
+  ],
+  exports: [AuthService]
+})
+export class AuthModule {}
+```
+
+## Utilisation des Guards
+
+Nous allons maintenant pouvoir utiliser nos guards pour protéger nos routes. Grâce au guard local, la route va demander les identifiants de l'utilisateur, avant de continuer le fonctionnement de la route. Il sera utile pour protéger les routes lors de la connexion de l'utilisateur `POST /auth/login`.
+
+```typescript title="auth/guards/local.guard.ts"
+@Injectable()
+export class JwtRefreshAuthGuard extends AuthGuard('local') {}
+```
+
+Le guard JWT va lui vérifier que l'utilisateur est bien authentifié, et qu'il possède un token d'accès valide. Il sera utile pour protéger les routes qui nécessitent une authentification, comme par exemple `GET /users`.
+
+```typescript title="auth/guards/jwt.guard.ts"
+@Injectable()
+export class JwtAuthGuard extends AuthGuard('jwt') {}
+```
+
+Le guard JWT Refresh va lui vérifier que l'utilisateur est bien authentifié, et qu'il possède un token de rafraichissement valide. Il sera utile pour protéger les routes qui nécessitent une authentification, comme par exemple `GET /auth/refresh`.
+
+```typescript title="auth/guards/jwt-refresh.guard.ts"
+@Injectable()
+export class JwtRefreshAuthGuard extends AuthGuard('jwt-refresh') {}
+```
+
+## Implémentation d'un middleware
+
+Nous allons maintenant implémenter un middleware qui va nous permettre de vérifier que l'utilisateur est bien authentifié, et qu'il possède un token d'accès valide. Il sera utile pour protéger les routes qui nécessitent une authentification, comme par exemple `GET /users`. Il va également nous permettre de mettre à jour le token d'accès si celui-ci est expiré.
+
+```typescript title="auth/middlewares/auth.middleware.ts"
+@Injectable()
+export class JwtMiddleware implements NestMiddleware {
+  constructor(@Inject(AuthService) private readonly authService: AuthService) {}
+
+  async use(req: Request, res: Response, next: NextFunction) {
+    const accessToken = req.cookies['accessToken']
+    const refreshToken = req.cookies['refreshToken']
+
+    if (!accessToken && !refreshToken) {
+      return next()
+    }
+
+    try {
+      await this.authService.verifyAccessToken(accessToken)
+    } catch (err) {
+      if (err.status !== 401) {
+        return next()
+      }
+
+      const dataRefreshToken = await this.authService
+        .verifyRefreshToken(refreshToken)
+        .catch(() => null)
+
+      if (dataRefreshToken) {
+        const data = await this.authService.refreshTokens(dataRefreshToken.id, {
+          req,
+          res
+        })
+
+        req.cookies['accessToken'] = data.accessToken
+        req.cookies['refreshToken'] = data.refreshToken
+      } else {
+        res.clearCookie('accessToken')
+        res.clearCookie('refreshToken')
+      }
+    }
+
+    next()
+  }
+}
+```
+
+Puis nous allons l'ajouter au module central `AppModule`.
+
+```typescript title="app.module.ts"
+// ...
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(JwtMiddleware)
+  }
+}
+```
+
+## Conclusion
+
+Nous avons maintenant mis en place un système d'authentification basé sur JWT, avec un token d'accès et un token de rafraichissement. Nous avons également mis en place un middleware qui va nous permettre de vérifier que l'utilisateur est bien authentifié, et qu'il possède un token d'accès valide. Il sera utile pour protéger les routes qui nécessitent une authentification, comme par exemple `GET /users`. Il va également nous permettre de mettre à jour le token d'accès si celui-ci est expiré.
+
+Vous pouvez désormais créer vos routes en utilisant les guards et le middleware que nous avons mis en place.
+
+## Liens utiles
+
+- [NestJS Authentification](https://docs.nestjs.com/security/authentication)
+- [NestJS Guards](https://docs.nestjs.com/guards)
+- [NestJS Middleware](https://docs.nestjs.com/middleware)
+- [JWT](https://jwt.io/)

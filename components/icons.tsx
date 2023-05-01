@@ -1,4 +1,5 @@
 import {
+  Ban,
   Github,
   Laptop,
   Moon,
@@ -14,5 +15,6 @@ export const Icons = {
   moon: Moon,
   laptop: Laptop,
   twitter: Twitter,
-  github: Github
+  github: Github,
+  ban: Ban
 }
