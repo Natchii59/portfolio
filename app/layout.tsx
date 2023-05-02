@@ -25,7 +25,16 @@ export const metadata = {
     template: `%s | ${siteConfig.name}`
   },
   description: siteConfig.description,
-  keywords: ['Next.js', 'React', 'Tailwind CSS', 'Radix UI'],
+  keywords: [
+    'Natchi',
+    'Nathan',
+    'Fullstack',
+    'Developer',
+    'Web',
+    'Typescript',
+    'React',
+    'Next.js'
+  ],
   authors: [
     {
       name: 'Natchi',
@@ -42,12 +51,32 @@ export const metadata = {
     description: siteConfig.description,
     creator: '@Natchi59'
   },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png'
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      url: `/favicon-16x16.png`,
+      sizes: '16x16'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      url: `/favicon-32x32.png`,
+      sizes: '32x32'
+    },
+    {
+      rel: 'apple-touch-icon',
+      type: 'image/png',
+      url: `/apple-touch-icon.png`,
+      sizes: '180x180'
+    },
+    {
+      rel: 'shortcut icon',
+      type: 'image/x-icon',
+      url: `/favicon.ico`
+    }
+  ],
+  manifest: `/site.webmanifest`
 }
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
