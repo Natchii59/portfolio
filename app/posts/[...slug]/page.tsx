@@ -14,8 +14,8 @@ interface DocPageProps {
   }
 }
 
-async function getPostFromParams({ params }: DocPageProps) {
-  const slug = params.slug?.join('/') || ''
+async function getPostFromParams(rawSlug: string[]) {
+  const slug = rawSlug.join('/')
   const post = allPosts.find(post => post.slugAsParams === slug)
 
   if (!post) {
@@ -28,7 +28,7 @@ async function getPostFromParams({ params }: DocPageProps) {
 export async function generateMetadata({
   params
 }: DocPageProps): Promise<Metadata> {
-  const post = await getPostFromParams({ params })
+  const post = await getPostFromParams(params.slug)
 
   if (!post) {
     return {}
@@ -45,16 +45,14 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams(): Promise<
-  DocPageProps['params'][]
-> {
+export async function generateStaticParams() {
   return allPosts.map(post => ({
     slug: post.slugAsParams.split('/')
   }))
 }
 
 export default async function PostPage({ params }: DocPageProps) {
-  const post = await getPostFromParams({ params })
+  const post = await getPostFromParams(params.slug)
 
   if (!post) {
     notFound()
