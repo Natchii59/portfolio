@@ -1,14 +1,4 @@
-import {
-  Ban,
-  Github,
-  Laptop,
-  Moon,
-  Sun,
-  Twitter,
-  type Icon as LucideIcon
-} from 'lucide-react'
-
-export type Icon = LucideIcon
+import { Ban, Github, Laptop, Moon, Sun, Twitter } from 'lucide-react'
 
 export const Icons = {
   sun: Sun,

@@ -4,10 +4,11 @@ import localFont from 'next/font/local'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 import '@/styles/globals.css'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
+
 import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
+import { cn } from '@/lib/utils'
+import { siteConfig } from '@/config/site'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -84,7 +85,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
     <html lang='fr' suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans text-[0.9rem] antialiased',
+          'min-h-screen font-sans text-[0.9rem] antialiased',
           fontSans.variable,
           fontHeading.variable
         )}
