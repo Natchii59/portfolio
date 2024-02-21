@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss'
-import { fontFamily } from 'tailwindcss/defaultTheme'
 
-const config: Config = {
+const config = {
   darkMode: ['class'],
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
@@ -9,7 +8,7 @@ const config: Config = {
       center: true,
       padding: '2rem',
       screens: {
-        md: '700px'
+        lg: '1024px'
       }
     },
     extend: {
@@ -53,10 +52,6 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
-      fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
-        heading: ['var(--font-heading)', ...fontFamily.sans]
-      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
@@ -74,6 +69,6 @@ const config: Config = {
     }
   },
   plugins: [require('tailwindcss-animate')]
-}
+} satisfies Config
 
 export default config

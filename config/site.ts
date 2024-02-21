@@ -1,12 +1,10 @@
-import { SiteConfig } from '@/types'
-
-export const siteConfig: SiteConfig = {
+export const siteConfig = {
   name: 'Natchi',
-  description:
-    "Je suis un développeur full-stack, j'aime créer et apprendre de nouvelles choses.",
-  url: 'https://www.natchi.fr',
+  description: "Natchi's portfolio and blog.",
+  url: 'https://natchi.fr',
   links: {
-    twitter: 'https://twitter.com/Natchi59',
     github: 'https://github.com/Natchii59'
   }
 }
+
+export type SiteConfig = typeof siteConfig

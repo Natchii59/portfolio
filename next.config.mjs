@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
-const config = {
-  reactStrictMode: true
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'skillicons.dev'
+      }
+    ]
+  }
 }
 
-export default config
+export default nextConfig
