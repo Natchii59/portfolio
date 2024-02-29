@@ -33,7 +33,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='container pb-16'>
+      <div className='container'>
         <h2 className='mb-1 text-2xl font-bold sm:text-3xl'>About me.</h2>
 
         <p className='text-sm leading-5 sm:text-base'>
@@ -59,7 +59,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className='container pt-16'>
+      <div className='container pt-20'>
         <h2 className='mb-1 text-2xl font-bold sm:text-3xl'>
           My developper stack.
         </h2>
@@ -115,7 +115,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='container pt-16'>
+      <div className='container pt-20'>
         <h2 className='mb-1 text-2xl font-bold sm:text-3xl'>My projects.</h2>
 
         <Accordion type='single' collapsible className='w-full'>
