@@ -1,8 +1,8 @@
 export const configProjects = [
   {
-    title: 'chable-api',
+    title: 'Chable API',
     description:
-      'A GraphQL API for a IRC-like chat application with auth and socket.io',
+      'This is a personal project where I have built a GraphQL API using Nest.js and Typescript. It allows users to send messages in channels to groups of people. I use JWT tokens to authenticate users, and for real-time messaging in channels, I have integrated a socket.io server. As for the database, I use PostgreSQL with Prisma. Additionally, I optimize database queries to the maximum by using dataloaders for resolve fields.',
     href: 'https://github.com/Natchii59/chable-api'
   }
 ]

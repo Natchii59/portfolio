@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 
 import { Providers } from '@/components/providers'
-import { fontSans } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 
 import '@/styles/globals.css'
@@ -62,12 +60,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body
-        className={cn(
-          'min-h-screen bg-background font-sans antialiased',
-          fontSans.className
-        )}
-      >
+      <body className='min-h-screen bg-background font-sans antialiased'>
         <Providers>{children}</Providers>
       </body>
     </html>

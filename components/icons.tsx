@@ -1,8 +1,9 @@
-import { Github, Laptop, Moon, Sun } from 'lucide-react'
+import { ExternalLink, Github, Laptop, Moon, Sun } from 'lucide-react'
 
 export const Icons = {
-  sun: Sun,
-  moon: Moon,
+  externalLink: ExternalLink,
+  github: Github,
   laptop: Laptop,
-  github: Github
+  moon: Moon,
+  sun: Sun
 }

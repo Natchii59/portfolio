@@ -40,15 +40,15 @@ export function ThemeModeToggle({
       <DropdownMenuContent align='end'>
         <DropdownMenuItem onClick={() => setTheme('light')}>
           <Icons.sun className='mr-2 size-4' />
-          <span>Clair</span>
+          <span>Light</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>
           <Icons.moon className='mr-2 size-4' />
-          <span>Sombre</span>
+          <span>Dark</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>
           <Icons.laptop className='mr-2 size-4' />
-          <span>Système</span>
+          <span>System</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
