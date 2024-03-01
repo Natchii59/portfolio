@@ -23,7 +23,7 @@ export default function Home() {
         <div className='pointer-events-none absolute inset-0 flex items-center justify-center bg-background [mask-image:linear-gradient(to_bottom,transparent_30%,black)]' />
 
         <div className='container relative z-20'>
-          <h1 className='bg-gradient-to-b from-zinc-400 to-zinc-700 bg-clip-text text-4xl font-bold text-transparent dark:from-zinc-200 dark:to-zinc-500 sm:text-7xl'>
+          <h1 className='bg-gradient-to-b from-zinc-400 to-zinc-700 bg-clip-text text-4.5xl font-bold text-transparent dark:from-zinc-200 dark:to-zinc-500 sm:text-7xl'>
             hi, i&apos;m natchi.
           </h1>
           <p className='text-xs font-medium text-zinc-700 dark:text-zinc-500 sm:text-sm'>
