@@ -43,7 +43,8 @@ export const metadata: Metadata = {
       template: `%s | ${siteConfig.name}`
     },
     description: siteConfig.description,
-    url: siteConfig.url
+    url: siteConfig.url,
+    siteName: siteConfig.name
   }
 }
 

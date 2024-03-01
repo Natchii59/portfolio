@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Natchi',
-  description: "Natchi's portfolio and blog.",
+  description: "Natchi's portfolio.",
   url: 'https://natchi.fr',
   links: {
     github: 'https://github.com/Natchii59'
