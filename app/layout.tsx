@@ -9,6 +9,7 @@ import { fontInter } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
@@ -40,8 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description
-  },
-  metadataBase: new URL(siteConfig.url)
+  }
 }
 
 export const viewport: Viewport = {
