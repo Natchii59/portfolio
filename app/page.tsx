@@ -153,7 +153,7 @@ export default function Home() {
 
         <div className='flex items-center gap-x-4 pt-4'>
           <span className='flex-1 text-sm text-muted-foreground'>
-            I love to build this website &#60;3
+            I loved to build this website &#60;3
           </span>
 
           <Link

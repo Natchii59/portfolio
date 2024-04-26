@@ -5,12 +5,11 @@ import { siteConfig } from '@/config/site'
 
 import '@/styles/globals.css'
 
+import { fontInter } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
+
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`
-  },
-  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
     'Next.js',
@@ -29,39 +28,38 @@ export const metadata: Metadata = {
     }
   ],
   creator: 'Natchi',
-  twitter: {
-    title: {
-      default: siteConfig.name,
-      template: `%s | ${siteConfig.name}`
-    },
-    description: siteConfig.description,
-    card: 'summary'
-  },
   openGraph: {
-    title: {
-      default: siteConfig.name,
-      template: `%s | ${siteConfig.name}`
-    },
-    description: siteConfig.description,
+    type: 'website',
+    locale: 'en_US',
     url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
     siteName: siteConfig.name
-  }
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description
+  },
+  metadataBase: new URL(siteConfig.url)
 }
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   userScalable: false,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' }
-  ]
+  themeColor: 'var(--background)'
 }
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className='min-h-screen bg-background font-sans antialiased'>
+      <body
+        className={cn(
+          'min-h-screen bg-background antialiased',
+          fontInter.variable
+        )}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
